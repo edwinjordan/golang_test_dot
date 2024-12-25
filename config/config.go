@@ -7,9 +7,9 @@ import (
 )
 
 func GetEnv(key string) string {
-	if err := godotenv.Load(".env"); err != nil{
+	if err := godotenv.Load(".env"); err != nil {
 		panic(err)
 	}
 
-	return os.GetEnv(key)
+	return os.Getenv(key)
 }

@@ -7,3 +7,9 @@ type Category struct {
 	CategoryName     string    `json:"category_name"`
 	CategoryDeleteAt time.Time `json:"category_delete_at"`
 }
+
+type CategoryResponse struct {
+	CategoryId       string    `json:"category_id"`
+	CategoryName     string    `json:"category_name"`
+	CategoryDeleteAt time.Time `json:"category_delete_at"`
+}

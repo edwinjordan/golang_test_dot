@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "33ae8c21-351d-499d-802d-c00e0270d6ec",
+		"name": "DOT Test Golang",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "9217500"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:3131/api/category"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_name\" : \"Topi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3131/api/category"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_name\" : \"Gantungan Kunci\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3131/api/category/087f38639154455ad7b371a709bab205"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:3131/api/category/087f38639154455ad7b371a709bab20a"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Get Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:3131/api/customer"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_password\" : \"Aero1996\",\r\n    \"customer_name\" : \"Iga Agustina\",\r\n    \"customer_gender\" : \"P\",\r\n    \"customer_phonenumber\": \"084321523162\",\r\n    \"customer_email\" : \"iga@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3131/api/customer"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_old_password\" : \"Aero1996\",\r\n    \"customer_new_password\" : \"Aero1996\",\r\n    \"customer_name\" : \"Iga Agustina Imma Rovianty\",\r\n    \"customer_gender\" : \"P\",\r\n    \"customer_phonenumber\": \"084321523162\",\r\n    \"customer_email\" : \"iga@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3131/api/customer/83eb56b279c7ad30c067f8ac00787411"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:3131/api/customer/83eb56b279c7ad30c067f8ac00787411"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer Address",
+			"item": [
+				{
+					"name": "Post Customer Address",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address_customer_id\" : \"9533d4b4c417ebab4f09e54ab9c96857\",\r\n    \"address_name\" : \"Rumah Sendiri\",\r\n    \"address_text\" : \"Jalan Raya Pare\",\r\n    \"address_postal_code\" : \"64181\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3131/api/address"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Post Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parent\": \r\n        {\r\n            \"order_customer_id\": \"9533d4b4c417ebab4f09e54ab9c96857\",\r\n            \"order_total_item\": 3,\r\n            \"order_subtotal\": 200000,\r\n            \"order_discount\": 0,\r\n            \"order_total\": 600000,\r\n            \"order_notes\": \"ok\"\r\n           \r\n        },\r\n     \"detail\" : [\r\n                {\r\n                    \"product_nama\" : \"Baju\",\r\n                    \"product_qty\" : 1,\r\n                    \"product_price\" : 400000\r\n\r\n                },\r\n                 {\r\n                    \"product_nama\" : \"Celana\",\r\n                    \"product_qty\" : 2,\r\n                    \"product_price\" : 400000\r\n\r\n                }\r\n            ]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3131/api/order"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

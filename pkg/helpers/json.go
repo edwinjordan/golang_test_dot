@@ -39,7 +39,7 @@ func formDataToJSON(r *http.Request, result interface{}) {
 				"Base64":   toBase64([]byte(bytes)),
 				"FileName": fileHeader.Filename,
 				"Size":     fileHeader.Size,
-				"Ext":      MimeTypeToExt(fileHeader.Header["Content-Type"][0]),
+				//	"Ext":      MimeTypeToExt(fileHeader.Header["Content-Type"][0]),
 				// "Ext":      MimeTypeToExt(http.DetectContentType(bytes)),
 			}
 
@@ -51,17 +51,17 @@ func formDataToJSON(r *http.Request, result interface{}) {
 		val := r.PostFormValue(i)
 
 		switch dataType[i] {
-			case "int":
-				res, _ := strconv.Atoi(val)
-				data[i] = res
-			case "float32":
-				res, _ := strconv.ParseFloat(val, 32)
-				data[i] = res
-			case "float64":
-				res, _ := strconv.ParseFloat(val, 64)
-				data[i] = res
-			default:
-				data[i] = val
+		case "int":
+			res, _ := strconv.Atoi(val)
+			data[i] = res
+		case "float32":
+			res, _ := strconv.ParseFloat(val, 32)
+			data[i] = res
+		case "float64":
+			res, _ := strconv.ParseFloat(val, 64)
+			data[i] = res
+		default:
+			data[i] = val
 		}
 	}
 
@@ -69,6 +69,10 @@ func formDataToJSON(r *http.Request, result interface{}) {
 	PanicIfError(err)
 	json.Unmarshal([]byte(ra), result)
 }
+
+// func MimeTypeToExt(s string) {
+// 	panic("unimplemented")
+// }
 
 func urlEncodedFormToJSON(r *http.Request, result interface{}) {
 	err := r.ParseForm()

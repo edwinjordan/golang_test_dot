@@ -3,14 +3,16 @@ package main
 import (
 	"net/http"
 
-	"github.com/edwinjordan/golang_test_dot/config"
-	"github.com/go-playground/validator"
+	"github.com/edwinjordan/golang_test_dot.git/config"
+	"github.com/go-playground/validator/v10"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
+
 	//"github.com/edwinjordan/golang_test_dot/middleware"
-	"github.com/edwinjordan/golang_test_dot/pkg/helpers"
-	"github.com/edwinjordan/golang_test_dot/pkg/mysql"
-	"github.com/edwinjordan/golang_test_dot/router"
+	"github.com/edwinjordan/golang_test_dot.git/pkg/helpers"
+	"github.com/edwinjordan/golang_test_dot.git/pkg/mysql"
+	"github.com/edwinjordan/golang_test_dot.git/pkg/redis"
+	"github.com/edwinjordan/golang_test_dot.git/router"
 	"github.com/rs/cors"
 )
 
@@ -18,6 +20,8 @@ func main() {
 	// fmt.Println("Hello world");
 	validate := validator.New()
 	db := mysql.DBConnectGorm()
+	db_redis := redis.NewRedisClient()
+
 	route := mux.NewRouter()
 
 	corsOpt := cors.New(cors.Options{
@@ -33,7 +37,10 @@ func main() {
 		},
 	})
 
-	router.CategoryRouter(db, validate, route)
+	router.CategoryRouter(db, validate, route, db_redis)
+	router.CustomerRouter(db, validate, route, db_redis)
+	router.CustomerAddressRouter(db, validate, route)
+	router.OrderRouter(db, validate, route)
 
 	server := http.Server{
 		Addr:    config.GetEnv("HOST_ADDR"),

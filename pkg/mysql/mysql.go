@@ -6,15 +6,15 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/edwinjordan/golang_test_dot/config"
-	"github.com/edwinjordan/golang_test_dot/pkg/helpers"
+	"github.com/edwinjordan/golang_test_dot.git/config"
+	"github.com/edwinjordan/golang_test_dot.git/pkg/helpers"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
 func DBConnect() *sql.DB {
 	connectionString := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true", config.GetEnv("DB_USERNAME"), config.GetEnv("DB_PASSWORD"), config.GetEnv("DB_HOST"), config.GetEnv("DB_PORT"), config.GetEnv("DB_NAME"))
-	db , err := sql.Open(config.GetEnv("DB_DRIVER"), connectionString)
+	db, err := sql.Open(config.GetEnv("DB_DRIVER"), connectionString)
 
 	helpers.PanicIfError(err)
 
@@ -29,7 +29,7 @@ func DBConnect() *sql.DB {
 }
 
 func DBConnectGorm() *gorm.DB {
-	connectionString := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true", config.GetEnv("DB_USERNAME"), config.GetEnv("DB_PASSWORD"), config.GetEnv("DB_HOST"), config.GetEnv("DB_PORT"), config.GetEnv("DB_NAME"))
+	connectionString := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true", "root", "", "localhost", "3306", "golang_test_dot")
 	db, err := gorm.Open(mysql.Open(connectionString), &gorm.Config{})
 	helpers.PanicIfError(err)
 

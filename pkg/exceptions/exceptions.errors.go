@@ -3,10 +3,10 @@ package exceptions
 import (
 	"net/http"
 
-	"github.com/go-playground/validator"
-	"github.com/edwinjordan/golang_test_dot/handler"
-	"github.com/edwinjordan/golang_test_dot/pkg/helpers"
-	"github.com/edwinjordan/golang_test_dot/pkg/validations"
+	"github.com/edwinjordan/golang_test_dot.git/handler"
+	"github.com/edwinjordan/golang_test_dot.git/pkg/helpers"
+	"github.com/edwinjordan/golang_test_dot.git/pkg/validations"
+	"github.com/go-playground/validator/v10"
 )
 
 func ErrorHadler(w http.ResponseWriter, r *http.Request, err interface{}) {
