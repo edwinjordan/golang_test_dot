@@ -88,8 +88,8 @@ export GOPATH=$HOME/go
 
 ```bash
 cd /home/ubuntu/go
-git clone https://yaayakk@bitbucket.org/yaayakk/yayak-rgb-golang-test.git
-cd yayak-rgb-golang-test
+git clone https://github.com/edwinjordan/golang_test_dot.git
+cd golang_test_dot
 ```
 
 - Copy env to .env and change configuration with your own configuration
